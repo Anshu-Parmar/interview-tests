@@ -1,10 +1,14 @@
 import 'dart:ui';
 
-import 'package:challenges/presentation/product/product_screen.dart';
+import 'package:challenges/presentation/product/product_screen.dart' show ProductScreen;
+import 'package:challenges/service_locator.dart' show initializeDependencies;
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  await initializeDependencies();
+  runApp(
+    const MyApp()
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -22,6 +26,7 @@ class MyApp extends StatelessWidget {
         dragDevices: {PointerDeviceKind.mouse, PointerDeviceKind.touch,
           PointerDeviceKind.stylus, PointerDeviceKind.unknown},
       ),
+      // home: TaskUi(),
       home: ProductScreen(),
     );
   }
